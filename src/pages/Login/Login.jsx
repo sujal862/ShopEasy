@@ -79,7 +79,7 @@ const Login = () => {
 
         <div className="login-help">
           <p>
-            <strong>Test Account:</strong>
+            <strong>Demo Account:</strong>
             <br />
             Username: mor_2314
             <br />
