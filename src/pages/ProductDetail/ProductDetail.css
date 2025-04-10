@@ -7,34 +7,39 @@
 .back-button {
   background: none;
   border: none;
-  color: #3498db;
+  color: var(--primary-color);
   cursor: pointer;
   font-size: 1rem;
   padding: 0.5rem 0;
   margin-bottom: 1.5rem;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
 }
 
 .back-button:hover {
-  text-decoration: underline;
+  color: var(--primary-dark);
 }
 
 .product-detail {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .product-detail-img-container {
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-right: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .product-detail-img {
@@ -52,31 +57,32 @@
 .product-detail-title {
   font-size: 1.5rem;
   margin: 0 0 1rem;
-  color: #2c3e50;
+  color: var(--text-color);
+  font-weight: 700;
 }
 
 .product-detail-category {
   font-size: 0.875rem;
-  color: #7f8c8d;
+  color: var(--text-light);
   margin-bottom: 1rem;
   text-transform: capitalize;
 }
 
 .product-detail-category span {
   font-weight: 500;
-  color: #34495e;
+  color: var(--text-color);
 }
 
 .product-detail-price {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #2c3e50;
+  color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
 .product-detail-description {
   line-height: 1.6;
-  color: #34495e;
+  color: var(--text-color);
   margin-bottom: 2rem;
 }
 
@@ -96,7 +102,7 @@
 .quantity-selector label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: #4a5568;
+  color: var(--text-color);
 }
 
 .quantity-input-group {
@@ -107,51 +113,106 @@
 .quantity-btn {
   width: 36px;
   height: 36px;
-  background-color: #f1f1f1;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  background-color: var(--bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background-color: var(--primary-light);
+  color: white;
+  border-color: var(--primary-light);
 }
 
 .quantity-input {
   width: 60px;
   height: 36px;
   text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   margin: 0 0.5rem;
   font-size: 1rem;
+  color: var(--text-color);
 }
 
 .add-to-cart-button {
-  background-color: #3498db;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 4px;
-  padding: 0.75rem;
+  border-radius: 8px;
+  padding: 0.75rem 1.25rem;
   font-size: 1rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .add-to-cart-button:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
 }
 
-.product-detail-loading,
-.product-detail-error {
+.add-to-cart-button:active {
+  transform: translateY(0);
+}
+
+.product-detail-loading {
+  animation: fadeIn 0.3s ease;
+}
+
+.product-detail-loading .spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.product-detail-loading {
   text-align: center;
   padding: 3rem;
   font-size: 1.1rem;
+  color: var(--text-light);
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .product-detail-error {
-  color: #e74c3c;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1rem;
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--error-color);
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 3px solid var(--error-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 /* Mobile responsive */
@@ -159,11 +220,11 @@
   .product-detail {
     grid-template-columns: 1fr;
   }
-  
+
   .product-detail-img-container {
     padding: 1rem;
   }
-  
+
   .product-detail-info {
     padding: 1.5rem;
   }

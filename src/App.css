@@ -1,4 +1,17 @@
 /* Global styles */
+:root {
+  --primary-color: #4f46e5; /* Header background color */
+  --primary-dark: #4338ca; /* Darker shade for hover states */
+  --primary-light: #818cf8; /* Lighter shade for highlights */
+  --accent-color: #f97316; /* Orange accent for cart count, etc. */
+  --bg-color: #f8fafc; /* Light background */
+  --card-bg: #ffffff; /* Card background */
+  --text-color: #1e293b; /* Main text color */
+  --text-light: #64748b; /* Secondary text color */
+  --error-color: #ef4444; /* Error messages */
+  --success-color: #10b981; /* Success messages */
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -7,8 +20,8 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #333;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   line-height: 1.6;
 }
 
@@ -41,11 +54,13 @@ button {
 
 /* for links */
 a {
-  color: #3498db;
+  color: var(--primary-color);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:hover {
+  color: var(--primary-dark);
   text-decoration: underline;
 }
 

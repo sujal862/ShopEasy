@@ -1,7 +1,7 @@
 .product-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
@@ -9,6 +9,7 @@
   text-decoration: none;
   color: inherit;
   height: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .product-card:hover {
@@ -35,13 +36,15 @@
 .product-category {
   position: absolute;
   top: 10px;
-  right: 10px;
-  background-color: rgba(44, 62, 80, 0.8);
+  left: 10px;
+  background-color: var(--primary-color);
   color: white;
   padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+  border-radius: 20px;
   font-size: 0.75rem;
   text-transform: capitalize;
+  font-weight: 500;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .product-info {
@@ -74,20 +77,26 @@
 .product-price {
   font-weight: bold;
   font-size: 1.1rem;
-  color: #2c3e50;
+  color: var(--text-color);
 }
 
 .add-to-cart-btn {
-  background-color: #3498db;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.2s ease;
 }
 
 .add-to-cart-btn:hover {
-  background-color: #2980b9;
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+.add-to-cart-btn:active {
+  transform: translateY(0);
 }
